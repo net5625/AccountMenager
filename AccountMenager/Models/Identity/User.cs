@@ -4,6 +4,5 @@ namespace AccountMenager.Models.Identity
 {
     public class User : IdentityUser
     {
-
     }
 }

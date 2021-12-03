@@ -1,0 +1,27 @@
+﻿@model AccountMenager.Models.Identity.RegisterViewModel
+@addTagHelper *,Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Sign up";
+}
+<h1>Sign up</h1>
+<p>Please register to continue.</p>
+<form class="form-horizontal" asp-controller="Account" asp-action="Register" method="post">
+    <h5>Fill int the fields to sign up.</h5>
+    <div asp-validation-summary="All" class="text-danger"></div>
+    <div class="form-group">
+        <label asp-for="Email">Login(E-mail):</label>
+        <input type="email" class="form-control" asp-for="Email">
+    </div>
+    <span asp-validation-for="Email" class="text-danger"></span>
+    <div class="form-group">
+        <label asp-for="Password">Password:</label>
+        <input type="password" class="form-control" asp-for="Password">
+    </div>
+    <span asp-validation-for="Password" class="text-danger"></span>
+    <div class="form-group">
+        <label asp-for="ConfirmPassword">Password:</label>
+        <input type="password" class="form-control" asp-for="Password">
+    </div>
+    <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+    <input type="submit" />
+</form>
