@@ -6,6 +6,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Identity;
+using AccountMenager.Services;
 
 namespace AccountMenager
 {
@@ -24,6 +25,8 @@ namespace AccountMenager
             services.AddDbContext<Database>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
             services.AddIdentity<User, IdentityRole>().AddEntityFrameworkStores<Database>();
+
+            services.AddScoped<IUserService, UserService>();
 
             services.AddControllersWithViews();
         }
