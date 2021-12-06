@@ -4,5 +4,5 @@
 <h1>Welcome in Panel</h1>
 <p>Panel is only for login users.</p>
 <h3>Choose options:</h3>
-<button>Home Page</button>
-<button>Logout</button>
+<button onclick="location.href='@Url.Action("Index", "Home")'">Home Page</button>
+<button onclick="location.href='@Url.Action("Logout", "Account")'">Logout</button>

@@ -18,7 +18,7 @@ namespace AccountMenager.Services
         public async Task<bool> Login(LoginViewModel model)
         {
             User user = new() { Email = model.Email, UserName = model.Email};
-            SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
+            SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, false, false); //TODO: Login not working
             if (signInResult.Succeeded)
             {
                 return true;
@@ -39,6 +39,19 @@ namespace AccountMenager.Services
                 return true;
             }
             else
+            {
+                return false;
+            }
+        }
+
+        public async Task<bool> Logout()
+        {
+            try
+            {
+                await _signInManager.SignOutAsync();
+                return true;
+            }
+            catch
             {
                 return false;
             }

@@ -9,13 +9,11 @@ namespace AccountMenager.Models.Identity
         public string Email { get; set; }
         [Required(ErrorMessage = "Hasło jest wymagane!"),
         DataType(DataType.Password, ErrorMessage = "Hasło nie przeszło walidacji!"),
-        RegularExpression(@"^[A-Z]{0,1}[!@#$%^&*()]{0,1}[0-9A-Za-z.]{6,32}", ErrorMessage ="Wymagana jedna duża litera a minimalna długość hasła to 8 znaków.")]
+        RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,32}$", ErrorMessage ="Wymagana minimum jedna duża litera, minimum jedna cyfra, minium jeden znak specjalny; minimalna długość hasła to 8 znaków, maksymalna 32.")]
         public string Password { get; set; }
         [Required(ErrorMessage = "Powtórne podanie hasła jest konieczne."),
         DataType(DataType.Password, ErrorMessage = "Hasło nie przeszło walidacji!"),
-        Compare(nameof(Password),ErrorMessage = "Hasła nie są identyczne.")] //TODO: Hasła nie są identyczne - podczas gdy fizycznie są
+        Compare(nameof(Password),ErrorMessage = "Hasła nie są identyczne.")]
         public string ConfirmPassword { get; set; }
-        //[0-9A-Za-z!@#$%^&*().]{8,32}
-        //^([A-Z])([0-9A-Za-z!@#$%^&*().]){8,32}
     }
 }

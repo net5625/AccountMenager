@@ -64,5 +64,19 @@ namespace AccountMenager.Controllers
             }
             return View();
         }
+
+        [HttpGet]
+        public async Task<IActionResult> Logout()
+        {
+            var result = await UserService.Logout();
+            if (result)
+            {
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return View("Index");
+            }
+        }
     }
 }

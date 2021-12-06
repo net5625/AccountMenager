@@ -9,7 +9,7 @@ namespace AccountMenager.Models.Identity
         public string Email { get; set; }
         [Required(ErrorMessage = "Hasło jest wymagane."),
         DataType(DataType.Password,ErrorMessage = "Hasło nie przeszło walidacji!"),
-        RegularExpression(@"^[A-Z][0-9A-Za-z.]{8,32}")]
+        RegularExpression(@"^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[#$^+=!*()@%&]).{8,32}$", ErrorMessage = "Podane hasło jest nieprawidłowe")]
         public string Password { get; set; }
     }
 }

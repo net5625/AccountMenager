@@ -7,5 +7,6 @@ namespace AccountMenager.Services
     {
         public Task<bool> Login(LoginViewModel model);
         public Task<bool> Register(RegisterViewModel model);
+        public Task<bool> Logout();
     }
 }
