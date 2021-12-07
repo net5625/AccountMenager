@@ -17,8 +17,8 @@ namespace AccountMenager.Services
 
         public async Task<bool> Login(LoginViewModel model)
         {
-            User user = new() { Email = model.Email, UserName = model.Email};
-            SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, false, false); //TODO: Login not working
+            var user = await _userManager.FindByNameAsync(model.Email);
+            SignInResult signInResult = await _signInManager.PasswordSignInAsync(user, model.Password, false, false);
             if (signInResult.Succeeded)
             {
                 return true;
